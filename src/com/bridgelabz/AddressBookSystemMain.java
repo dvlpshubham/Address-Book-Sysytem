@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class AddressBookSystemMain {
     public static void main(String[] args) {
-        System.out.println("Welcome to address book system using collection");
+        System.out.println("Welcome To AddressBook management System");
         Scanner sc = new Scanner(System.in);
         AddressBookSystemDetails addressBook = new AddressBookSystemDetails();
         Map<String, AddressBookSystemDetails> addressBookMap = new HashMap<String, AddressBookSystemDetails>();
@@ -54,8 +54,14 @@ public class AddressBookSystemMain {
                     System.out.println("Welcome to the counter");
                     addressBook.countByOption();
                     break;
-                case 7:
-                    sc.close();// for closing the programme
+                case 7 : FileIO fileIO = new FileIO();
+                    fileIO.writeData(addressBookMap);
+                    break;
+                case 8 : FileIO fileIORead = new FileIO();
+                    System.out.println(fileIORead.readData());
+                    break;
+                case 9:
+                    sc.close();
                     return;
                 default:
                     System.out.println("You Entered Invalid Choice....!");
